@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.cloud:google-cloud-dialogflow:2.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.cloud/google-cloud-dialogflow/2.1.0/1e6bf518e63c6bbea515085d4548d4f4e1bfec90/google-cloud-dialogflow-2.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.cloud/google-cloud-dialogflow/2.1.0/9a00ce8242b688f164bf9e88be28e74dd77254ff/google-cloud-dialogflow-2.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.cloud/google-cloud-dialogflow/2.1.0/db74f78a2775dc221a8aa64b6ad5dc11693b5ae4/google-cloud-dialogflow-2.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

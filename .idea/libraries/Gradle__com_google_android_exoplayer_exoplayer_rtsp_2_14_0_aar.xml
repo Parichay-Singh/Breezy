@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.exoplayer:exoplayer-rtsp:2.14.0@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8615400e2971943656910f06fecec46/jetified-exoplayer-rtsp-2.14.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7778ec202bc145e31b1254a36a536499/jetified-exoplayer-rtsp-2.14.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8615400e2971943656910f06fecec46/jetified-exoplayer-rtsp-2.14.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8615400e2971943656910f06fecec46/jetified-exoplayer-rtsp-2.14.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8615400e2971943656910f06fecec46/jetified-exoplayer-rtsp-2.14.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-rtsp/2.14.0/e2a208b4f3acd0c5d9e69661a843bb9601d5597f/exoplayer-rtsp-2.14.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
