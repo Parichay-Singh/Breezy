@@ -1,24 +1,20 @@
 package com.patrollers.breezy.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.patrollers.breezy.MainActivity;
-import com.patrollers.breezy.R;
-
-import android.content.Intent;
-import android.util.Log;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import androidx.fragment.app.Fragment;
+
+import com.patrollers.breezy.QuestionActivity;
+import com.patrollers.breezy.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -73,7 +69,7 @@ public class SignupFragment extends Fragment {
 
                         FirebaseDatabase.getInstance().getReference("Users").child(mAuth.getUid()).setValue(userMap).addOnCompleteListener(taskDb -> {
                             if (taskDb.isSuccessful()) {
-                                startActivity(new Intent(getContext(), MainActivity.class));
+                                startActivity(new Intent(getContext(), QuestionActivity.class));
                                 getActivity().finish();
                             } else {
                                 Snackbar.make(view, "Sign Up Failed", Snackbar.LENGTH_LONG).show();

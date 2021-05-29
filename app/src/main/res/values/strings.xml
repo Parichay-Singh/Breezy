@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Breezy</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="basicQues">"[{\"id\":6,\"ques\":\"Do you ever hear or see things that others cannot?\",\"code\":\"Schizophrenia\"},{\"id\":5,\"ques\":\"Have you ever experienced an event that was unusually or especially frightening, horrible or traumatic?\",\"code\":\"PTSD\"},{\"id\":5,\"ques\":\"Are you not able to stop or control worrying too much or are you having trouble relaxing\",\"code\":\"Anxiety\"},{\"id\":5,\"ques\":\"Do you feel the need to organise items in a certain way \u2013 for example lining everything up until they feel 'right'?\",\"code\":\"OCD\"},{\"id\":5,\"ques\":\"Do you feel disinterested or displeased in doing everyday tasks?\",\"code\":\"Depression\"}]"</string>
 </resources>
