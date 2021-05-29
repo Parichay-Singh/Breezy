@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
                 android:gravity="center"
                 android:text="Do you want to take the Quiz again?"
                 android:textColor="@color/white"
@@ -48,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/round_btn_ques"
-                android:textAllCaps="false"
                 android:text="Start"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -158,7 +157,8 @@
                         android:buttonTint="@color/accent"
                         android:checked="true"
                         android:tag="yes"
-                        android:text="Yes" />
+                        android:text="Yes"
+                        android:textColor="@color/white"/>
 
                     <RadioButton
                         android:id="@+id/radioButton4"
@@ -167,7 +167,8 @@
                         android:layout_marginTop="20dp"
                         android:buttonTint="@color/accent"
                         android:tag="no"
-                        android:text="No" />
+                        android:text="No"
+                        android:textColor="@color/white"/>
                 </RadioGroup>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,7 +42,15 @@ public class SplashActivity extends AppCompatActivity {
         logo.setAnimation(fromTop);
 
         new Handler().postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+            if (mAuth.getCurrentUser() == null) {
+                Intent homeIntent = new Intent(SplashActivity.this, LoginActivity.class);
+                startActivity(homeIntent);
+            } else {
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            }
+            finish();
         }, SPLASH_TIME_OUT);
     }
 }
