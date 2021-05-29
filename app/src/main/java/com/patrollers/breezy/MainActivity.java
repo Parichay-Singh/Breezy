@@ -8,6 +8,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -22,6 +23,9 @@ import com.patrollers.breezy.fragments.ChatFragment;
 import com.patrollers.breezy.fragments.HomeFragment;
 import com.patrollers.breezy.fragments.ProfileFragment;
 import com.patrollers.breezy.fragments.QuizFragment;
+import com.patrollers.breezy.fragments.TaskFragment;
+
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         taskFloatingBtn.setOnClickListener(view -> {
-            //TODO : Add functionality
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_frame, new TaskFragment()).commit();
             setItemCheckable(false);
         });
 
@@ -72,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
                     return true;
             }
             return false;
+        });
+
+        KeyboardVisibilityEvent.setEventListener(this, isOpen -> {
+            if(isOpen){
+                coordinatorLayout.setVisibility(View.INVISIBLE);
+            }else{
+                coordinatorLayout.setVisibility(View.VISIBLE);
+            }
         });
     }
 

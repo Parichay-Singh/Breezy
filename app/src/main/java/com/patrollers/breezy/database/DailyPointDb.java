@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.patrollers.breezy.models.DailyPoints;
 
-@Database(entities = {DailyPoints.class}, version = 3, exportSchema = false)
+@Database(entities = {DailyPoints.class}, version = 4, exportSchema = false)
 public abstract class DailyPointDb extends RoomDatabase {
     private static final String DATABASE_NAME = "dailyPointDb";
     private static DailyPointDb sInstance;

@@ -43,4 +43,10 @@ public interface DailyDao {
 
     @Query("UPDATE dailyPointDb SET meditation = :med WHERE id =(SELECT MAX(id) FROM dailyPointDb)")
     void updateMeditate(boolean med);
+
+    @Query("UPDATE dailyPointDb SET points = :point WHERE id =(SELECT MAX(id) FROM dailyPointDb)")
+    void updatePoints(int point);
+
+    @Query("SELECT points FROM dailyPointDb ORDER BY id DESC LIMIT 15")
+    List<Integer> getGraphPoints();
 }

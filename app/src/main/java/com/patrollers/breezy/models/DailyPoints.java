@@ -10,7 +10,7 @@ public class DailyPoints {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
-    private int sleep, mood;
+    private int sleep, mood, points;
     private boolean isHydrated, exercise, meditation;
     private String date;
 
@@ -79,5 +79,13 @@ public class DailyPoints {
 
     public void setMeditation(boolean meditation) {
         this.meditation = meditation;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
