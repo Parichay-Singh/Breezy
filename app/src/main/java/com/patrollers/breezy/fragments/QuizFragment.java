@@ -1,11 +1,14 @@
 package com.patrollers.breezy.fragments;
 
 import android.content.SharedPreferences;
+import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
@@ -50,6 +53,9 @@ public class QuizFragment extends Fragment {
     private JSONObject currentQuestion;
     private List<String> allQuestions, temp;
     private Map<String, Integer> numberOfQues;
+    Animation left,right;
+    float v = 0;
+
 
     public QuizFragment() {
     }
@@ -62,7 +68,15 @@ public class QuizFragment extends Fragment {
 
         confirm_btn_start.setOnClickListener(view -> {
             //TODO : Set animation, cardView had to go left and the constraintlayout should appear from the right
+            left = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
+            right= AnimationUtils.loadAnimation(getContext(),R.anim.fadeout);
+            confirmation_cardView.setAnimation(right);
+            //confirmation_cardView.setTranslationX(800);
+
+            //confirmation_cardView.animate().translationX(800).setDuration(800).setStartDelay(300).start();
+           // confirmation_cardView.setAlpha(v);
             confirmation_cardView.setVisibility(View.GONE);
+            main_ques_layout.setAnimation(left);
             main_ques_layout.setVisibility(View.VISIBLE);
         });
 
