@@ -57,8 +57,9 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
+                android:layout_marginBottom="5dp"
                 android:elevation="2dp"
                 android:src="@drawable/mhiconnew">
 
@@ -67,16 +68,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:orientation="vertical">
-
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
                     android:text="Illness"
                     android:textColor="#5F5F65"
                     android:textSize="20sp"
@@ -105,8 +104,9 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
+                android:layout_marginBottom="5dp"
                 android:elevation="2dp"
                 android:src="@drawable/statusicon">
 
@@ -115,16 +115,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:orientation="vertical">
-
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
                     android:text="Health Status"
                     android:textColor="#5F5F65"
                     android:textSize="20sp"
@@ -138,7 +136,7 @@
                     android:layout_marginTop="8dp"
                     android:text="none"
                     android:textColor="@color/primary"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
@@ -153,42 +151,64 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
+                android:layout_marginBottom="5dp"
                 android:elevation="2dp"
                 android:src="@drawable/tasksicon">
 
             </ImageView>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:orientation="vertical">
 
-
                 <TextView
+                    android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
                     android:text="Tasks"
+                    android:layout_marginStart="10dp"
                     android:textColor="#5F5F65"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tasks_status"/>
 
                 <TextView
                     android:id="@+id/tasks_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
                     android:text="none"
                     android:textColor="@color/primary"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationView"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tasks_status"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/smiley" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

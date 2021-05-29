@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.patrollers.breezy.R;
 import com.github.mikephil.charting.charts.LineChart;
@@ -49,7 +50,11 @@ public class HomeFragment extends Fragment {
 
     @BindView(R.id.username) TextView username;
     @BindView(R.id.detect_disease) TextView detect_disease;
+    @BindView(R.id.status_health) TextView status_health;
+    @BindView(R.id.tasks_status) TextView tasks_status;
     @BindView(R.id.graphView) LineChart graphView;
+    @BindView(R.id.animationView)
+    LottieAnimationView animationView;
 
     private DailyDao dailyDao;
     private SharedPreferences.Editor Ed;
@@ -85,6 +90,22 @@ public class HomeFragment extends Fragment {
             }
         }
 
+        boolean exr = dailyDao.getExercise();
+        boolean med = dailyDao.getMeditate();
+
+        if (exr && med) {
+            tasks_status.setText("Completed");
+            animationView.setVisibility(View.VISIBLE);
+        } else if (exr || med)
+            tasks_status.setText("1 task left");
+        else
+            tasks_status.setText("Pending");
+
+        List<Integer> graphPoints = dailyDao.getGraphPoints();
+        int listSize = graphPoints.size() - 1;
+
+        Log.e("Info", listSize + "hi");
+
         graphView.setDragEnabled(true);
         graphView.setScaleEnabled(true);
         graphView.getAxisRight().setDrawGridLines(false);
@@ -95,21 +116,24 @@ public class HomeFragment extends Fragment {
         graphView.getXAxis().setDrawLabels(false);
 
         List<Entry> yValues = new ArrayList<>();
-        yValues.add(new Entry(0, 60f));
-        yValues.add(new Entry(1, 50f));
-        yValues.add(new Entry(2, 70f));
-        yValues.add(new Entry(3, 30f));
-        yValues.add(new Entry(4, 50f));
-        yValues.add(new Entry(5, 60f));
-        yValues.add(new Entry(6, 65f));
+        if (listSize != -1) {
+            for (int i = listSize; i >= 0; i--) {
+                yValues.add(new Entry(listSize - i, graphPoints.get(i)));
+            }
 
-        LineDataSet set = new LineDataSet(yValues, "Mood Graph");
+            if (graphPoints.get(listSize) > graphPoints.get(0))
+                status_health.setText("Improving");
+            else
+                status_health.setText("Deteriorating, take care!");
+        }
+
+        LineDataSet set = new LineDataSet(yValues, "Daily Mood Graph");
         set.setFillAlpha(110);
 
         Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.fade_graph);
         set.setDrawFilled(true);
         set.setFillDrawable(drawable);
-        set.setColor(Color.rgb(0, 119, 182));
+        set.setColor(Color.rgb(0,119,182));
         set.setLineWidth(1.5f);
         set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
@@ -117,7 +141,6 @@ public class HomeFragment extends Fragment {
         dataSets.add(set);
 
         LineData data = new LineData(dataSets);
-
         graphView.setData(data);
 
         return root;
@@ -210,6 +233,7 @@ public class HomeFragment extends Fragment {
                 dailyDialog.dismiss();
                 try {
                     int valuePoints = getPoints(getContext());
+                    dailyDao.updatePoints(valuePoints);
                     Ed.putInt("ValuePoints", valuePoints);
                     Ed.apply();
                     Log.e("Info", valuePoints + "");
