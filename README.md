@@ -39,6 +39,8 @@ The BreezyBot is designed to help users with extra symptoms if they are having a
 ### **Tech Stack 📚:**
 
 - Android Studio
+- json
+- sqlite
 - DialogFlow
 - Figma
 - Firebase
