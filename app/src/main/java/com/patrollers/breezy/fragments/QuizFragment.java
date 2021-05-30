@@ -54,8 +54,6 @@ public class QuizFragment extends Fragment {
     private List<String> allQuestions, temp;
     private Map<String, Integer> numberOfQues;
     Animation left,right;
-    float v = 0;
-
 
     public QuizFragment() {
     }
@@ -67,14 +65,9 @@ public class QuizFragment extends Fragment {
         ButterKnife.bind(this, root);
 
         confirm_btn_start.setOnClickListener(view -> {
-            //TODO : Set animation, cardView had to go left and the constraintlayout should appear from the right
             left = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
             right= AnimationUtils.loadAnimation(getContext(),R.anim.fadeout);
             confirmation_cardView.setAnimation(right);
-            //confirmation_cardView.setTranslationX(800);
-
-            //confirmation_cardView.animate().translationX(800).setDuration(800).setStartDelay(300).start();
-           // confirmation_cardView.setAlpha(v);
             confirmation_cardView.setVisibility(View.GONE);
             main_ques_layout.setAnimation(left);
             main_ques_layout.setVisibility(View.VISIBLE);
